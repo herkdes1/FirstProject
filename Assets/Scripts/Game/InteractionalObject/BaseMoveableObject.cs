@@ -7,11 +7,11 @@
     [RequireComponent(typeof(Collider), typeof(Rigidbody))]
     public abstract class BaseMoveableObject : MonoBehaviour, IInteractionalObject, IMoveableObject
     {
-        [SerializeField] private float _defaultSpeed = 1f;
-        [SerializeField] private float _defaultRadius = 10f;
+        [SerializeField] protected float _defaultSpeed = 1f;
+        [SerializeField] protected float _defaultRadius = 10f;
         protected float Speed { get; set; }
         private float _radius;
-        private float _maxX, _minX, _maxY, _minY, _maxZ, _minZ;
+        protected float _maxX, _minX, _maxY, _minY, _maxZ, _minZ;
         protected float Radius
         {
             get => _radius;
@@ -37,7 +37,7 @@
         }
 
         protected abstract IState InitState();
-        protected MoveableObjectContext GetContext() { return _stateContext; }
+        public MoveableObjectContext GetContext() { return _stateContext; }
 
         protected virtual void Initialize()
         {
@@ -54,25 +54,30 @@
             _stateContext.Request();
         }
 
+        public void SetState(IState state)
+        {
+            _stateContext.State = state;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (_stateContext.State == null)
                 return;
-            other.GetComponent<IInteractableObject>()?.Interact(this);
+            other.GetComponent<IEnterInteractable>()?.Interact(this);
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (_stateContext.State == null)
                 return;
-            other.GetComponent<IInteractableObject>()?.DeInteract(this);
+            other.GetComponent<IExitInteractable>()?.ExitInteract(this);
         }
 
         private void OnTriggerStay(Collider other)
         {
             if (_stateContext.State == null)
                 return;
-            other.GetComponent<IInteractableObject>()?.ContinuousInteract(this);
+            other.GetComponent<IContinuousInteractable>()?.ContinuousInteract(this);
         }
 
         protected virtual void Movement(Vector3 target)
@@ -123,6 +128,11 @@
         public Vector3 GetTarget()
         {
             return _target;
+        }
+
+        public virtual void Interaction(IInteractableObject obj)
+        {
+
         }
 
         #endregion

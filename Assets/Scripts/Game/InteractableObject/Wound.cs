@@ -3,12 +3,14 @@
     using Base.Game.InteractionalObject;
     using Base.Game.Signal;
     using System.Collections;
+    using System.Collections.Generic;
     using UnityEngine;
 
     [RequireComponent(typeof(Collider))]
-    public class Wound : MonoBehaviour, IInteractableObject
+    public class Wound : MonoBehaviour, IEnterInteractable, IExitInteractable, IContinuousInteractable, IInteractableObject
     {
         [SerializeField] private MeshRenderer _renderer = null;
+        private Color _defaultMeshColor;
         [Space(20)]
         [SerializeField] private float _defaultCompressionRatio = 0.5f;
         [SerializeField] private float _defaultStretchRatio = 10f;
@@ -18,36 +20,40 @@
         private float _comprassionRatio;
         private float _stretchRatio;
 
-        private WormOfWound[] _worms;
+        [Space(10)]
+        [SerializeField] private List<WormOfWound> _worms = null;
 
         private SphereCollider _collider;
         private float _maxColliderRadius;
 
-        private bool _clicked = false;
-
+        private bool _isActive = false;
+        
         private void Awake()
         {
             Initialize();
         }
 
+        private void OnDestroy()
+        {
+            SignalBus<SignalInteractableObjectDestroy,IInteractableObject>.Instance.Fire(this);
+        }
+
         private void Initialize()
         {
+            _defaultMeshColor = _renderer.material.color;
             _collider = GetComponent<SphereCollider>();
             _maxColliderRadius = _collider.radius;
             _comprassionRatio = _defaultCompressionRatio * Time.deltaTime;
             _stretchRatio = _defaultStretchRatio * Time.deltaTime;
-            _worms = GetComponentsInChildren<WormOfWound>();
             StartCoroutine(MaterialColorChangeAction());
         }
-        private void OnMouseDown()
+        public void Activate()
         {
-            if (_clicked)
-                return;
-            _clicked = true;
-            _renderer.material.color = Color.white;
+            _isActive = true;
+            _renderer.material.color = _defaultMeshColor;
             StopAllCoroutines();
-            SignalBus<SignalStageStart>.Instance.Fire();
         }
+
         private IEnumerator MaterialColorChangeAction()
         {
             var wait = new WaitForSeconds(.5f);
@@ -55,41 +61,41 @@
             while (true)
             {
                 isWhite = !isWhite;
-                _renderer.material.color = isWhite ? Color.white : Color.red;
+                _renderer.material.color = isWhite ? _defaultMeshColor : Color.red;
                 yield return wait;
             }
         }
 
         public void Interact(IInteractionalObject obj)
         {
-            if (!(obj is Hand))
+            if (!(obj is Hand) || !_isActive)
                 return;
-            transform.localScale -= Vector3.forward * _comprassionRatio;
-            if (transform.localScale.z < _minCompressionValue)
-                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, _minCompressionValue);
+            transform.localScale -= Vector3.right * _comprassionRatio;
+            if (transform.localScale.x < _minCompressionValue)
+                transform.localScale = new Vector3(_minCompressionValue, transform.localScale.y, transform.localScale.z);
             foreach (WormOfWound worm in _worms)
                 worm.MoveUp();
-            _collider.radius -= _comprassionRatio/2;
-            if (_collider.radius < .5f)
-                _collider.radius = .5f;
+            _collider.radius -= _comprassionRatio/10;
+            if (_collider.radius < .05f)
+                _collider.radius = .05f;
         }
 
-        public void DeInteract(IInteractionalObject obj)
+        public void ExitInteract(IInteractionalObject obj)
         {
-            if (!(obj is Hand))
+            if (!(obj is Hand) || !_isActive)
                 return;
-            transform.localScale += Vector3.forward * _stretchRatio;
-            if (transform.localScale.z > _maxCompressionValue)
+            transform.localScale += Vector3.right * _stretchRatio;
+            if (transform.localScale.x > 1)
             {
-                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, _maxCompressionValue);
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
                 return;
             }
             foreach (WormOfWound worm in _worms)
                 worm.MoveDown();
-            _collider.radius += _stretchRatio / 2;
+            _collider.radius += _stretchRatio / 10;
             if (_collider.radius > _maxColliderRadius)
                 _collider.radius = _maxColliderRadius;
-            _maxCompressionValue = transform.localScale.z;
+            _maxCompressionValue = transform.localScale.x;
         }
 
         public void ContinuousInteract(IInteractionalObject obj)
@@ -98,9 +104,18 @@
                 return;
             Interact(obj);
         }
+
+        public void WormExit(WormOfWound worm)
+        {
+            _worms.Remove(worm);
+            if (_worms.Count == 0)
+                Destroy(gameObject, 3f);
+        }
+
+        public Transform GetTransform()
+        {
+            return transform;
+        }
     }
 
-    internal interface IEmumerator
-    {
-    }
 }

@@ -1,30 +1,60 @@
 ﻿namespace Base.Game.Environment
 {
     using System;
+    using Base.Game.InteractionalObject;
     using Base.Game.Signal;
     using UnityEngine;
 
     public class StaticHand : MonoBehaviour
     {
+        private Vector3 _defaultLocalPos;
+        private Vector3 _defaultRotation;
+
         private void Awake()
         {
-            SignalBus<SignalStageStart>.Instance.Register(OnStageStart);
-            gameObject.SetActive(false);
+            Registration();
+            DeActive();
         }
-
         private void OnDestroy()
         {
-            SignalBus<SignalStageStart>.Instance.UnRegister(OnStageStart);
+            UnRegistration();
         }
-
-        private void OnStageStart()
+        private void Registration()
         {
-            Invoke("Active", 1.8f);
+            SignalBus<SignalWoundSelection, Transform>.Instance.Register(OnWoundSelection);
         }
 
-        private void Active()
+        private void OnWoundSelection(Transform obj)
+        {
+            if (obj == null)
+                return;
+            transform.position = new Vector3(obj.position.x - .05f, obj.position.y + .05f, obj.position.z);
+        }
+
+        private void UnRegistration()
+        {
+            SignalBus<SignalWoundSelection, Transform>.Instance.UnRegister(OnWoundSelection);
+        }
+
+        public void Connected(Hand hand)
+        {
+            DeActive();
+        }
+
+        public void ConnectionFailed(Hand hand)
+        {
+            Active();
+        }
+
+        public void Active()
         {
             gameObject.SetActive(true);
         }
+
+        public void DeActive()
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }
