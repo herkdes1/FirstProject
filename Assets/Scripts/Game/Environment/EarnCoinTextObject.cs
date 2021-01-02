@@ -35,6 +35,7 @@
         {
             transform.position = new Vector3(obj.GetTransform().position.x, obj.GetTransform().position.y, transform.position.z);
             Active();
+            Handheld.Vibrate();
         }
 
         private void UnRegistration()
