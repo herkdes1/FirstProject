@@ -27,7 +27,9 @@
         private float _maxColliderRadius;
 
         private bool _isActive = false;
-        
+
+        private IInteractionalObject _connectedObj;
+
         private void Awake()
         {
             Initialize();
@@ -36,7 +38,9 @@
         private void OnDestroy()
         {
             SignalBus<SignalInteractableObjectDestroy,IInteractableObject>.Instance.Fire(this);
+            FindObjectOfType<Wound>()?.Activate(_connectedObj);
         }
+
 
         private void Initialize()
         {
@@ -46,12 +50,16 @@
             _comprassionRatio = _defaultCompressionRatio * Time.deltaTime;
             _stretchRatio = _defaultStretchRatio * Time.deltaTime;
             StartCoroutine(MaterialColorChangeAction());
+            _collider.enabled = false;
         }
-        public void Activate()
+        public void Activate(IInteractionalObject obj)
         {
+            _collider.enabled = true;
+            _connectedObj = obj;
             _isActive = true;
             _renderer.material.color = _defaultMeshColor;
             StopAllCoroutines();
+            obj.Interaction(this);
         }
 
         private IEnumerator MaterialColorChangeAction()

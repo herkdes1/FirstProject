@@ -17,14 +17,11 @@
 
         private Rigidbody _body;
 
+        private bool _destroyed = false;
+
         private void Awake()
         {
             Initialize();
-        }
-
-        private void OnDestroy()
-        {
-            SignalBus<SignalInteractableObjectDestroy, IInteractableObject>.Instance.Fire(this);
         }
 
         private void Initialize()
@@ -48,18 +45,19 @@
         
         private void OnTriggerExit(Collider other)
         {
-            if (other.GetComponent<Wound>())
+            if (other.GetComponent<Wound>() && !_destroyed)
             {
+                _destroyed = true;
                 other.GetComponent<Wound>().WormExit(this);
                 Invoke("UseGravity", 1f);
                 _animator.SetTrigger("Trigger");
+                SignalBus<SignalInteractableObjectDestroy, IInteractableObject>.Instance.Fire(this);
             }
         }
 
         private void UseGravity()
         {
             _body.isKinematic = false;
-            SignalBus<SignalWoundSelection, Transform>.Instance.Fire(null);
             Destroy(gameObject, 1f);
         }
 
