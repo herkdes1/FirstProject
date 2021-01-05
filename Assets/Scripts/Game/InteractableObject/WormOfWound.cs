@@ -10,13 +10,12 @@
 
         [SerializeField] private float _defaultBounceRatio = 1f;
         [SerializeField] private float _defaultPenetrationRatio = 1f;
-        [SerializeField] private float _maxDistanceOfBounce = 1f;
         private float _minDistanceOfPenetration;
         private float _penetrationRatio;
         private float _bounceRatio;
 
         private Rigidbody _body;
-
+        private Collider _collider;
         private bool _destroyed = false;
 
         private void Awake()
@@ -26,21 +25,21 @@
 
         private void Initialize()
         {
+            _collider = GetComponent<Collider>();
             _body = GetComponent<Rigidbody>();
             _bounceRatio = _defaultBounceRatio * Time.deltaTime;
             _penetrationRatio = _defaultPenetrationRatio * Time.deltaTime;
-            _maxDistanceOfBounce -= transform.position.x;
             _minDistanceOfPenetration = transform.position.x;
         }
         
         public void MoveUp()
         {
-            transform.position -= transform.forward * _bounceRatio;
+            transform.position += transform.up * _bounceRatio;
         }
 
         public void MoveDown()
         {
-            transform.position += transform.forward * _penetrationRatio;
+            transform.position -= transform.up * _penetrationRatio;
         }
         
         private void OnTriggerExit(Collider other)
@@ -58,6 +57,7 @@
         private void UseGravity()
         {
             _body.isKinematic = false;
+            _collider.isTrigger = false;
             Destroy(gameObject, 1f);
         }
 

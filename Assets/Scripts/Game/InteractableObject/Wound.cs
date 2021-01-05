@@ -10,13 +10,11 @@
     public class Wound : MonoBehaviour, IEnterInteractable, IExitInteractable, IContinuousInteractable, IInteractableObject
     {
         [SerializeField] private MeshRenderer _renderer = null;
+        [SerializeField] private GameObject _cap = null;
         private Color _defaultMeshColor;
         [Space(20)]
         [SerializeField] private float _defaultCompressionRatio = 0.5f;
         [SerializeField] private float _defaultStretchRatio = 10f;
-        [Space(10)]
-        [SerializeField] private float _minCompressionValue = 0.2f;
-        private float _maxCompressionValue = 1f;
         private float _comprassionRatio;
         private float _stretchRatio;
 
@@ -78,9 +76,6 @@
         {
             if (!(obj is Hand) || !_isActive)
                 return;
-            transform.localScale -= Vector3.right * _comprassionRatio;
-            if (transform.localScale.x < _minCompressionValue)
-                transform.localScale = new Vector3(_minCompressionValue, transform.localScale.y, transform.localScale.z);
             foreach (WormOfWound worm in _worms)
                 worm.MoveUp();
             _collider.radius -= _comprassionRatio/10;
@@ -92,18 +87,11 @@
         {
             if (!(obj is Hand) || !_isActive)
                 return;
-            transform.localScale += Vector3.right * _stretchRatio;
-            if (transform.localScale.x > 1)
-            {
-                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-                return;
-            }
             foreach (WormOfWound worm in _worms)
                 worm.MoveDown();
             _collider.radius += _stretchRatio / 10;
             if (_collider.radius > _maxColliderRadius)
                 _collider.radius = _maxColliderRadius;
-            _maxCompressionValue = transform.localScale.x;
         }
 
         public void ContinuousInteract(IInteractionalObject obj)
@@ -117,7 +105,10 @@
         {
             _worms.Remove(worm);
             if (_worms.Count == 0)
+            {
+                _cap.SetActive(false);
                 Destroy(gameObject, 3f);
+            }
         }
 
         public Transform GetTransform()
