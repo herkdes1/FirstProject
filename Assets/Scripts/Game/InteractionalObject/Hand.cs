@@ -95,6 +95,8 @@
             _lookableObj = obj.GetTransform();
             transform.rotation = Quaternion.Euler(_startingRot);
             transform.position = new Vector3(obj.GetTransform().position.x + .5f, obj.GetTransform().position.y - .5f, transform.position.z);
+            _startingPosition = transform.position;
+            Radius = Radius;
             _minX = _lookableObj.position.x + .05f;
             SignalBus<SignalWoundSelection, Transform>.Instance.Fire(obj.GetTransform());
         }
