@@ -111,7 +111,32 @@ ModelImporter:
   - first:
       74: -7212608545778248225
     second: Cube|SphereAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 53658fc01fe28334bbdf2911b28ad2aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 0fb1afb31d3d3a04ca7925bf448731df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: b4dfd6dc2d829724e98df59c4973b212, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Met.Dog
+    second: {fileID: 2100000, guid: 47e099e25b0d88745a78fdb41c3fbfe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: ac442f7b379851d41a7a6afaed3abb7a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
