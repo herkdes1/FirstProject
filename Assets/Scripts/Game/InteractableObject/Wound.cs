@@ -21,8 +21,7 @@
         private float _comprassionRatio;
         private float _stretchRatio;
 
-        [Space(10)]
-        [SerializeField] private List<WormOfWound> _worms = null;
+        private List<WormOfWound> _worms = null;
 
         private SphereCollider _collider;
         private float _maxColliderRadius;
@@ -45,6 +44,8 @@
 
         private void Initialize()
         {
+            _worms = new List<WormOfWound>();
+            _worms.AddRange(transform.parent.GetComponentsInChildren<WormOfWound>());
             _defaultMeshColor = _renderer.material.color;
             _collider = GetComponent<SphereCollider>();
             _maxColliderRadius = _collider.radius;
@@ -120,8 +121,22 @@
             if (_worms.Count == 0)
             {
                 _cap.SetActive(false);
-                Destroy(gameObject, 3f);
+                StartCoroutine(ImprovmentAction());
             }
+        }
+
+        private IEnumerator ImprovmentAction()
+        {
+            var wait = new WaitForFixedUpdate();
+            float timer = 3f;
+            Vector3 target = Vector3.forward + transform.position;
+            while(timer > 0f)
+            {
+                timer -= Time.fixedDeltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target, Time.fixedDeltaTime / 50);
+                yield return wait;
+            }
+            Destroy(gameObject);
         }
 
         public Transform GetTransform()

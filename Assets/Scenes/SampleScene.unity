@@ -1214,17 +1214,17 @@ PrefabInstance:
     - target: {fileID: 5886030144100084275, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.21
+      value: 1.116
       objectReference: {fileID: 0}
     - target: {fileID: 5886030144100084275, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.147
+      value: 4.009
       objectReference: {fileID: 0}
     - target: {fileID: 5886030144100084275, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.591
+      value: 8.529
       objectReference: {fileID: 0}
     - target: {fileID: 5886030144100084275, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
@@ -1382,6 +1382,18 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4521344907724466495, guid: c48de9444b9d40d468cfeeaade03f297,
     type: 3}
   m_PrefabInstance: {fileID: 716897136}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7d7ccaf9c15f0448c2ecb5a6881ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &726086568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8003013112384214792, guid: 1d815a831d7125648a672fdd4f8c46f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1992235471}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -2166,11 +2178,16 @@ PrefabInstance:
     - target: {fileID: 5886030144525267958, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
       propertyPath: _worms.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5886030144525267958, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
       propertyPath: _worms.Array.data[1]
+      value: 
+      objectReference: {fileID: 1037843717}
+    - target: {fileID: 5886030144525267958, guid: 1d815a831d7125648a672fdd4f8c46f5,
+        type: 3}
+      propertyPath: _worms.Array.data[2]
       value: 
       objectReference: {fileID: 1037843717}
     - target: {fileID: 8003013112384214795, guid: 1d815a831d7125648a672fdd4f8c46f5,
@@ -3051,7 +3068,7 @@ PrefabInstance:
     - target: {fileID: 5886030144525267958, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
       propertyPath: _worms.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5886030144525267958, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
@@ -3078,6 +3095,11 @@ PrefabInstance:
       propertyPath: _worms.Array.data[5]
       value: 
       objectReference: {fileID: 1641896812}
+    - target: {fileID: 5886030144525267958, guid: 1d815a831d7125648a672fdd4f8c46f5,
+        type: 3}
+      propertyPath: _worms.Array.data[6]
+      value: 
+      objectReference: {fileID: 726086568}
     - target: {fileID: 8003013112384214795, guid: 1d815a831d7125648a672fdd4f8c46f5,
         type: 3}
       propertyPath: m_RootOrder
