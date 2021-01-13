@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System;
+using Base.Game.Signal;
 
 public class Firca : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class Firca : MonoBehaviour
 
     public GameObject horseDirties;
 
-    float cleanProgress;
+    int coin;
+    float coinProgress;
     public Camera MainCam;
     public Vector3 CamNewPos;
     public ParticleSystem smoke;
@@ -24,7 +26,7 @@ public class Firca : MonoBehaviour
 
     private void Start()
     {
-        cleanProgress = 0;
+        coin = 0;
     }
     void Update()
     {
@@ -44,11 +46,14 @@ public class Firca : MonoBehaviour
                 other.gameObject.SetActive(false);
             }
             HapticAction.Vibrate();
-            cleanProgress += 2.3f;
+            coin += 3;
+            SignalBus<SignalCoinChange, int>.Instance.Fire(3);
             smoke.Play();
-            progressImage.fillAmount = cleanProgress / 100;
+            coinProgress = coin * 0.007f;
+            progressImage.fillAmount = coinProgress;
+            Debug.Log(coinProgress);
 
-            if (cleanProgress > 100)
+            if (coinProgress > 1)
             {
                 horseDirties.SetActive(false);
                 StartCoroutine(ShowWinScreenDelay()); 

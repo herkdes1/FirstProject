@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Base.Game.Signal;
 
 using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
@@ -12,7 +13,6 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-
     public void ShowWinScreen()
     {
         winScreen.SetActive(true);
@@ -29,5 +29,10 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+    public void NextLevel()
+    {
+        SignalBus<SignalNextStage>.Instance.Fire();
     }
 }
