@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using cakeslice;
 using TMPro;
 using System;
+using Base.Game.Signal;
 public enum GameMode { ToothPick, ToothBrush}
 public enum GameDifficulty { Easy,Medium,Hard}
 public enum GameState { START,ST1,ST2,ST3,ST4,ST5,ST6,ST7,ST8,ST9,EMPTY,END}
@@ -26,7 +27,11 @@ public class GameManager_Active : MonoBehaviour
     //---------------------------------------------------------------------------------------//
     //Ingame Numbers, Points etc
     public static int ModdedTeethCount;
-    public static int PlayerCurrentScore;
+    private static int playerCurrentScore;
+    public static int PlayerCurrentScore { get => playerCurrentScore; set {
+            SignalBus<SignalCoinChange, int>.Instance.Fire(value - playerCurrentScore);
+            playerCurrentScore = value;
+        } }
     int _playerMaxScore;
     //---------------------------------------------------------------------------------------//
     //UI Management
@@ -218,6 +223,7 @@ public class GameManager_Active : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         EndMenu.SetActive(true);
         PlayerMoneyMenu.text = PlayerCurrentScore.ToString();
+        SignalBus<SignalNextStage>.Instance.Fire();
     }
 
     public void GoToNextScene()
