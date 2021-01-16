@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TongueScrub.unity
     guid: 45a236e9ac5cb4e47abff0c9721339b0
+  - enabled: 1
+    path: Assets/Scenes/MuleScratching.unity
+    guid: 1c56575a9f8d7b7429037447c36dea00
   m_configObjects: {}

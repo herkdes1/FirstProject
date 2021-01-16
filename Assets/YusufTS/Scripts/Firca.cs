@@ -104,7 +104,7 @@ namespace YusufTS
         void BrushActivated()
         {
             GetComponent<MeshRenderer>().enabled = true;
-            gameObject.AddComponent<DragObject>();
+            gameObject.AddComponent<TS_DragObject>();
         }
         IEnumerator ShowWinScreenDelay()
         {
@@ -112,7 +112,7 @@ namespace YusufTS
             smoke.gameObject.SetActive(false);
             GetComponent<MeshRenderer>().enabled = false;
             yield return new WaitForSeconds(1.5f);
-            FindObjectOfType<UIManager>().ShowWinScreen();
+            FindObjectOfType<TS_UIManager>().ShowWinScreen();
         }
     }
 }
