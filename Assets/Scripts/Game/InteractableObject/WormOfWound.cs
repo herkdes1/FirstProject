@@ -27,19 +27,19 @@
         {
             _collider = GetComponent<Collider>();
             _body = GetComponent<Rigidbody>();
-            _bounceRatio = _defaultBounceRatio * Time.deltaTime;
-            _penetrationRatio = _defaultPenetrationRatio * Time.deltaTime;
+            _bounceRatio = _defaultBounceRatio;
+            _penetrationRatio = _defaultPenetrationRatio;
             _minDistanceOfPenetration = transform.position.x;
         }
         
         public void MoveUp()
         {
-            transform.position += transform.up * _bounceRatio;
+            transform.position += transform.up * _bounceRatio * Time.deltaTime;
         }
 
         public void MoveDown()
         {
-            transform.position -= transform.up * _penetrationRatio;
+            transform.position -= transform.up * _penetrationRatio * Time.deltaTime;
         }
         
         private void OnTriggerExit(Collider other)

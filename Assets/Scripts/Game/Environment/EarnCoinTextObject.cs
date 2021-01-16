@@ -14,6 +14,8 @@
         [SerializeField] private float _movementSpeed;
 
         private TextMeshPro _text;
+
+        private Coroutine _routine;
         private void Awake()
         {
             _text = GetComponent<TextMeshPro>();
@@ -46,8 +48,9 @@
         private void OnEnable()
         {
             SignalBus<SignalAddCoin, int>.Instance.Fire(_value);
-            StopAllCoroutines();
-            StartCoroutine(MovementAction());
+            if (_routine != null)
+                StopCoroutine(_routine);
+            _routine = StartCoroutine(MovementAction());
         }
 
         private IEnumerator MovementAction()
@@ -60,6 +63,7 @@
                 yield return wait;
             }
             DeActive();
+            _routine = null;
         }
 
         private void Active()

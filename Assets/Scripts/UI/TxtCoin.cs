@@ -1,5 +1,6 @@
 ﻿namespace Base.UI
 {
+    using Base.Game.Manager;
     using Base.Game.Signal;
     using System;
     using TMPro;
@@ -15,6 +16,11 @@
         {
             _text = GetComponent<TextMeshProUGUI>();
             Registration();
+        }
+
+        private void Start()
+        {
+            _text.text = FileManager.Instance.Player.Coin.ToString();
         }
 
         private void OnDestroy()

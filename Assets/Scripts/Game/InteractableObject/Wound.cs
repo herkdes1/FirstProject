@@ -84,6 +84,7 @@
         {
             if (!(obj is Hand) || !_isActive)
                 return;
+
             transform.localScale -= Vector3.right * _comprassionRatio;
             if (transform.localScale.x < _minCompressionValue)
                 transform.localScale = new Vector3(_minCompressionValue, transform.localScale.y, transform.localScale.z);
