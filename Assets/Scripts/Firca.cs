@@ -24,6 +24,7 @@ namespace YusufTS
         public ParticleSystem smoke;
         public GameObject confeti;
         public TMP_Text coinText;
+        public TMP_Text endGameCoinText;
 
         public Slider progress;
         public GameObject arrow;
@@ -56,6 +57,7 @@ namespace YusufTS
                 coinProgress = coin * 0.007f;
                 progress.value = coinProgress * 100;
                 coinText.text = (coinProgress * 300f).ToString("F0");
+                endGameCoinText.text = (coinProgress * 300f).ToString("F0");
                 if (coinProgress > 1)
                 {
                     horseDirties.SetActive(false);

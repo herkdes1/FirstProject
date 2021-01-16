@@ -38837,6 +38837,7 @@ MonoBehaviour:
   smoke: {fileID: 471893650102833988}
   confeti: {fileID: 1787831761}
   coinText: {fileID: 8085557309183895009}
+  endGameCoinText: {fileID: 8085557309496062701}
   progress: {fileID: 8085557310778334874}
   arrow: {fileID: 3780450225919979337}
 --- !u!54 &4596207359368907714
