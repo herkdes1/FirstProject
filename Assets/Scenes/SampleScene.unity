@@ -3409,7 +3409,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: eb298e01e7ffeb447bf40aae2d621798, type: 3}
+  - {fileID: 2100000, guid: 0ccde8f9ac2e4c943868577cd96328ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3449,7 +3449,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4152614df1dc88d4386b1cb3ad4a795e, type: 2}
-  - {fileID: -6478536213147159724, guid: eb298e01e7ffeb447bf40aae2d621798, type: 3}
+  - {fileID: 2100000, guid: 0ccde8f9ac2e4c943868577cd96328ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10017,7 +10017,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1116633319484568570, guid: eb298e01e7ffeb447bf40aae2d621798, type: 3}
+  - {fileID: 2100000, guid: 0ccde8f9ac2e4c943868577cd96328ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10138,5 +10138,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaticHandMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 3821192867294059792, guid: 436d545a40cfc3549ae5df8a4ce438ac,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 53658fc01fe28334bbdf2911b28ad2aa, type: 2}
+    - target: {fileID: 3821192867294059792, guid: 436d545a40cfc3549ae5df8a4ce438ac,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 53658fc01fe28334bbdf2911b28ad2aa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 436d545a40cfc3549ae5df8a4ce438ac, type: 3}
