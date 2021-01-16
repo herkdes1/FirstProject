@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System;
 using Base.Game.Signal;
+using TMPro;
 
 public class Firca : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Firca : MonoBehaviour
     public Vector3 CamNewPos;
     public ParticleSystem smoke;
     public GameObject confeti;
+    public TMP_Text coinText;
 
     public Slider progress;
     public GameObject arrow;
@@ -51,7 +53,7 @@ public class Firca : MonoBehaviour
             smoke.Play();
             coinProgress = coin * 0.007f;
             progress.value = coinProgress*100;
-
+            coinText.text = (coinProgress * 300f).ToString("F0");
             if (coinProgress > 1)
             {
                 horseDirties.SetActive(false);

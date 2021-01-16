@@ -5152,6 +5152,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8085557309640350085, guid: dd296eab7e8cef946b04b8d0675a5254,
+        type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8085557309747003557, guid: dd296eab7e8cef946b04b8d0675a5254,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -5354,6 +5359,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd296eab7e8cef946b04b8d0675a5254, type: 3}
+--- !u!114 &1206657387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8085557309640350085, guid: dd296eab7e8cef946b04b8d0675a5254,
+    type: 3}
+  m_PrefabInstance: {fileID: 752172132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1388091083
 GameObject:
   m_ObjectHideFlags: 0
@@ -25069,6 +25086,7 @@ MonoBehaviour:
   CamNewPos: {x: 0, y: 1.1, z: 2.4}
   smoke: {fileID: 471893650102833988}
   confeti: {fileID: 1653015868}
+  coinText: {fileID: 1206657387}
   progress: {fileID: 718655561}
   arrow: {fileID: 3780450225919979337}
 --- !u!54 &4596207359368907714
