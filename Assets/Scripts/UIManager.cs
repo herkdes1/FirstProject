@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject winScreen;
+    public GameObject endScreen;
     public GameObject startScreen;
     public GameObject horseFurs;
 
@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowWinScreen()
     {
-        winScreen.SetActive(true);
+        endScreen.SetActive(true);
         horseFurs.SetActive(false);
         Time.timeScale = 0;
     }
