@@ -38,7 +38,11 @@
         private void OnDestroy()
         {
             SignalBus<SignalInteractableObjectDestroy,IInteractableObject>.Instance.Fire(this);
-            FindObjectOfType<Wound>()?.Activate(_connectedObj);
+            try
+            {
+                FindObjectOfType<Wound>()?.Activate(_connectedObj);
+            }
+            catch { }
         }
 
 
