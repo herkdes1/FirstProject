@@ -40,7 +40,7 @@ namespace YusufMS
 
         private void OnDestroy()
         {
-            DOTween.Clear(true);
+             MainCam.transform.DOKill();
         }
 
         void Update()

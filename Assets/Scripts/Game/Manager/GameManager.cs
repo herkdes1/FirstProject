@@ -29,7 +29,7 @@
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                SignalBus<SignalNextStage>.Instance.Fire();
+                SignalBus<SignalFade, bool>.Instance.Fire(true);
             }
         }
         private void Registration()

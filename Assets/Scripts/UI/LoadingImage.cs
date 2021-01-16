@@ -12,7 +12,7 @@
         [SerializeField] private float _speed = 1f;
         private RectTransform _rect;
 
-        private void Awake()
+        private void Start()
         {
             _rect = GetComponent<RectTransform>();
             StartCoroutine(SizeAction());
@@ -45,7 +45,8 @@
                     _isBig = !_isBig;
                 yield return wait;
             }
-            SignalBus<SignalNextStage>.Instance.Fire();
+            yield return new WaitForSeconds(1f);
+            SignalBus<SignalFade, bool>.Instance.Fire(true);
         }
 
     }

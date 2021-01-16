@@ -69,7 +69,7 @@ namespace YusufTS
         }
         private void OnDestroy()
         {
-            DOTween.Clear(true);
+            MainCam.transform.DOKill();
         }
         public void FircaHareketAlani()
         {

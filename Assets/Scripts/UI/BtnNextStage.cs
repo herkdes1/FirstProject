@@ -10,7 +10,7 @@
     {
         public void OnPointerClick(PointerEventData eventData)
         {
-            SignalBus<SignalNextStage>.Instance.Fire();
+            SignalBus<SignalFade, bool>.Instance.Fire(true);
         }
     }
 }

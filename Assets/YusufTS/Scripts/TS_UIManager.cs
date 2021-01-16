@@ -11,31 +11,18 @@ namespace YusufTS
         public GameObject endScreen;
         public GameObject startScreen;
 
-        private void Awake()
-        {
-            Time.timeScale = 0;
-        }
-
-        private void OnDestroy()
-        {
-            Time.timeScale = 1;
-        }
-
         public void ShowWinScreen()
         {
             endScreen.SetActive(true);
-            Time.timeScale = 0;
         }
 
         public void StartButton()
         {
             startScreen.SetActive(false);
-            Time.timeScale = 1;
         }
 
         public void RestartLevel()
         {
-            Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         }
