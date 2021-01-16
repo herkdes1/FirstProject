@@ -21,7 +21,7 @@ public class Firca : MonoBehaviour
     public ParticleSystem smoke;
     public GameObject confeti;
 
-    public Image progressImage;
+    public Slider progress;
     public GameObject arrow;
 
     private void Start()
@@ -50,8 +50,7 @@ public class Firca : MonoBehaviour
             SignalBus<SignalCoinChange, int>.Instance.Fire(3);
             smoke.Play();
             coinProgress = coin * 0.007f;
-            progressImage.fillAmount = coinProgress;
-            Debug.Log(coinProgress);
+            progress.value = coinProgress*100;
 
             if (coinProgress > 1)
             {

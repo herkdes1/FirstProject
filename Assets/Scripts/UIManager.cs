@@ -6,7 +6,7 @@ using Base.Game.Signal;
 using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
-    public GameObject winScreen;
+    public GameObject endScreen;
     public GameObject startScreen;
 
     private void Awake()
@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     }
     public void ShowWinScreen()
     {
-        winScreen.SetActive(true);
+        endScreen.SetActive(true);
         Time.timeScale = 0;
     }
 
