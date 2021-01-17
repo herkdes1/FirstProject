@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: c389c00b634f5ee48ab9512bf3c92c9f
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: 7709686125681325085
+    second: Armature|Armature.001Action
+  - first:
+      74: -4175925883602875018
+    second: Armature|Armature.001|Armature.001|ArmatureAction.001|Armature.001|A
+  - first:
+      74: -432775757157210634
+    second: Armature|Armature.001|Armature.001|ArmatureAction.001|Armature.001|Armat
+  - first:
+      74: 6296429348753138443
+    second: Armature|Armature.001|Armature.001|ArmatureAction|Armature.001|Armat
+  - first:
+      74: -9106998329600317422
+    second: Armature|Armature.001|Armature.001|ArmatureAction|Armature.001|ArmatureA
+  - first:
+      74: 5734808825198364405
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Cube.001Act
+  - first:
+      74: 8364066164017860481
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Cube.001Action|
+  - first:
+      74: -6021085790341938466
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Cube.002Act
+  - first:
+      74: 5552225694338261775
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Cube.002Act.001
+  - first:
+      74: -7060149480058085545
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Cube.002Action.
+  - first:
+      74: 648174516979312122
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Cube.002Action|
+  - first:
+      74: 7151026121306653260
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Sphere.001A
+  - first:
+      74: 5747747806304321482
+    second: Armature|Armature.001|Armature.001|Sphere.001|Sphere.001|Sphere.001Actio
+  - first:
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
+  - first:
+      74: 3119018222616425057
+    second: Armature|Armature|Armature|ArmatureAction.001|Armature|ArmatureActio
+  - first:
+      74: 7099615945631834390
+    second: Armature|Armature|Armature|ArmatureAction.001|Armature|ArmatureAction.00
+  - first:
+      74: 8450808836658823645
+    second: Armature|Armature|Armature|ArmatureAction|Armature|ArmatureAction
+  - first:
+      74: -133249990413731437
+    second: Armature|Armature|Armature|ArmatureAction|Armature|ArmatureAction.001
+  - first:
+      74: -6572152193647143473
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Cube.001Action|Sphe
+  - first:
+      74: -6500712201950204268
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Cube.001Action|Sphere.0
+  - first:
+      74: -8401448664041038049
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Cube.002Action.001|
+  - first:
+      74: 8204334962432581991
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Cube.002Action.001|Sphe
+  - first:
+      74: -3932764900426330478
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Cube.002Action|Sphe
+  - first:
+      74: -933372816068872887
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Cube.002Action|Sphere.0
+  - first:
+      74: -1439445827237816476
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Sphere.001Action|Sp
+  - first:
+      74: 5460849911853911794
+    second: Armature|Armature|Armature|Sphere.001|Sphere.001|Sphere.001Action|Sphere
+  - first:
+      74: 3721546888123360317
+    second: Armature|Cube.002|Cube.002|Cube.002Action|Cube.002|Cube.002Action
+  - first:
+      74: 5449073193131188545
+    second: Armature|CubeAction
+  - first:
+      74: -806225054238890761
+    second: Armature|Sphere.001Action
+  - first:
+      74: -6788291789069941537
+    second: Armature|SphereAction
+  - first:
+      74: 813376062728056995
+    second: Cube|Armature.001Action
+  - first:
+      74: 3359832139105265598
+    second: Cube|Armature.001|Armature.001|ArmatureAction|Armature.001|Armat
+  - first:
+      74: -78127642815285473
+    second: Cube|Cube.002|Cube.002|Cube.002Action|Cube.002|Cube.002Action
+  - first:
+      74: -3999578356269874737
+    second: Cube|CubeAction
+  - first:
+      74: -5224224641880792917
+    second: Cube|Sphere.001Action
+  - first:
+      74: -7212608545778248225
+    second: Cube|SphereAction
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 53658fc01fe28334bbdf2911b28ad2aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 0fb1afb31d3d3a04ca7925bf448731df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: b4dfd6dc2d829724e98df59c4973b212, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Met.Dog
+    second: {fileID: 2100000, guid: 47e099e25b0d88745a78fdb41c3fbfe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: ac442f7b379851d41a7a6afaed3abb7a, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
