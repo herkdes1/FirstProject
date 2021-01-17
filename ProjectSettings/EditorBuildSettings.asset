@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Dogacan_AnimalDentist/Scenes/Dentist_Pull.unity
+    guid: ea83eb769d50eb1428cbc67ae9b2a4d1
+  - enabled: 0
+    path: Assets/Scenes/Dentist_Brush.unity
+    guid: 80afca4752ee6164886b8b4776975c09
   - enabled: 1
-    path: Assets/Scenes/TeethBrush.unity
-    guid: 2e9a44bb7358409418b2a80997d78e3f
-  - enabled: 1
-    path: Assets/Scenes/ToothPick.unity
-    guid: fe1624785465d4f438266331de6bb9f2
+    path: Assets/Scenes/Dentist_Spray.unity
+    guid: 3fdb1cd45806c0d4ba7532cd9542c76a
   m_configObjects: {}

@@ -10,6 +10,7 @@ TagManager:
   - Teeth_Mod
   - Tool_Cleaner
   - Tool_Nepper
+  - Tool_Painter
   layers:
   - Default
   - TransparentFX
