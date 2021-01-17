@@ -45,7 +45,6 @@
                     _isBig = !_isBig;
                 yield return wait;
             }
-            yield return new WaitForSeconds(1f);
             SignalBus<SignalFade, bool>.Instance.Fire(true);
         }
 

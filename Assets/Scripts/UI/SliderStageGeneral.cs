@@ -17,6 +17,7 @@
         private void Awake()
         {
             _slider = GetComponent<Slider>();
+            _slider.value = 0;
             MonoBehaviour[] objs = FindObjectsOfType<MonoBehaviour>();
             foreach(MonoBehaviour obj in objs)
             {

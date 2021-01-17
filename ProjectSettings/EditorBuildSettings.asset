@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Begining.unity
     guid: 84ef2419a9cb0594a8fd5ea1e59f65c1
   - enabled: 1
+    path: Assets/Scenes/HorseFootCleaning.unity
+    guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
     path: Assets/Scenes/MuleScratching.unity
     guid: 1c56575a9f8d7b7429037447c36dea00
   - enabled: 1
